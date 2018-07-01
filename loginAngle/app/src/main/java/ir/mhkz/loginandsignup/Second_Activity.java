@@ -14,7 +14,6 @@ ImageView adddd,pro;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_);
      adddd=findViewById(R.id.addd);
-     pro=findViewById(R.id.pram);
         adddd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -23,6 +22,14 @@ ImageView adddd,pro;
             }
 
 
+        });
+        pro =findViewById(R.id.pram);
+        pro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Second_Activity.this,pramoter.class);
+                startActivity(intent);
+            }
         });
 
         }
