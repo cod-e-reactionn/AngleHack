@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "808974592444",
+    "firebase_url": "https://anglehack-e621e.firebaseio.com",
+    "project_id": "anglehack-e621e",
+    "storage_bucket": "anglehack-e621e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:808974592444:android:3d3cc3ead8d12426",
+        "android_client_info": {
+          "package_name": "ir.mhkz.loginandregister"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "808974592444-moh9bdfebj5ia9mijltobth1lk2fr67r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ir.mhkz.loginandregister",
+            "certificate_hash": "537e9b3541b5843b6e36b523542cb75656f5712a"
+          }
+        },
+        {
+          "client_id": "808974592444-cgb9nvonqelc6ddn7srqp2qskp7e4ilm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJFzPuHyssb4ZP3mCYjHT1NIMctauYcFs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "808974592444-cgb9nvonqelc6ddn7srqp2qskp7e4ilm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

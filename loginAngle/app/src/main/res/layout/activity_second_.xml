@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ir.mhkz.loginandsignup.Second_Activity"
+    android:background="@color/white">
+
+
+
+    <ImageView
+
+        android:onClick="advertiser"
+        android:id="@+id/addd"
+        android:layout_width="370dp"
+        android:layout_height="298dp"
+        app:srcCompat="@android:drawable/star_big_on"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="13dp"
+        tools:ignore="MissingConstraints" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_orange_light"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/pram"
+        app:layout_constraintTop_toTopOf="@+id/addd"
+        app:layout_constraintVertical_bias="0.546"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
+
+    </View>
+
+    <ImageView
+        android:id="@+id/pram"
+        android:layout_width="373dp"
+        android:layout_height="233dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="pramoter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@android:drawable/ic_delete"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="7dp" />
+</android.support.constraint.ConstraintLayout>
