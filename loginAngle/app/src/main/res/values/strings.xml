@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LoginAndSignup</string>
+    <string name="app_name">Blurb</string>
     <string name="Username">Username</string>
     <string name="Password">Password</string>
     <string name="RememberMe">Remember Me</string>
@@ -12,4 +12,7 @@
     <string name="ConfirmEmailAddress">Confirm Email Address</string>
     <string name="SignUp">Sign Up</string>
     <string name="registrationPage">Registration Page</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+
 </resources>

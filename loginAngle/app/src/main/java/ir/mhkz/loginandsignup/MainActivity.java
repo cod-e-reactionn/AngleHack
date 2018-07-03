@@ -19,9 +19,17 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String USERNAME = "Name";
+    public static final String FIRST_NAME = "First_Name";
+    public static final String LAST_NAME = "Last_name";
+    public static final String EMAIL_ADD = "Email_add";
     private FirebaseAuth firebaseAuth;
+    //to save user data
+    private DocumentReference saveuserdata = FirebaseFirestore.getInstance().document("User/UserInfo");
 
 
     EditText username, password, reg_username, reg_password,
@@ -109,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                                 if (!task.isSuccessful()) {
 
 
-                                    Toast.makeText(MainActivity.this, "Login not successfull", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity.this, "Login successfull", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(MainActivity.this,Second_Activity.class);
                                     startActivity(intent);
                                 }
@@ -135,7 +143,6 @@ public class MainActivity extends AppCompatActivity {
         View dialogView = inflater.inflate(R.layout.register, null);
         dialog.setView(dialogView);
         firebaseAuth = FirebaseAuth.getInstance();
-
         reg_username = dialogView.findViewById(R.id.reg_username);
         reg_password = dialogView.findViewById(R.id.reg_password);
         reg_firstName = dialogView.findViewById(R.id.reg_firstName);
@@ -147,10 +154,23 @@ public class MainActivity extends AppCompatActivity {
 
 
         reg_register.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+
+
+
             @Override
             public void onClick(View view) {
                 String email = reg_email.getText().toString().trim();
                 String password  = reg_password.getText().toString().trim();
+                String name = reg_firstName.getText().toString().trim();
+                String username =reg_username.getText().toString().trim();
+                String lastname = reg_lastName.getText().toString().trim();
+
+
+
                 if (reg_username.getText().toString().trim().isEmpty()) {
 
                     reg_username.setError("Please fill out this field");
@@ -206,10 +226,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
         dialog.show();
 
 
     }
 
 
-}
+
+
+    }
+
+

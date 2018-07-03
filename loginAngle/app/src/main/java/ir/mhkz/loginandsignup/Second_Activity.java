@@ -17,7 +17,7 @@ ImageView adddd,pro;
         adddd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(Second_Activity.this,advertisment.class);
+                Intent intent =new Intent(Second_Activity.this, advertisment.class);
                 startActivity(intent);
             }
 
@@ -27,7 +27,7 @@ ImageView adddd,pro;
         pro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Second_Activity.this,pramoter.class);
+                Intent intent=new Intent(Second_Activity.this, pramoter.class);
                 startActivity(intent);
             }
         });
@@ -36,5 +36,5 @@ ImageView adddd,pro;
 
 
 
-    }
+}
 

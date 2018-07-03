@@ -28,7 +28,9 @@
             android:textSize="30sp" />
 
     </LinearLayout>
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/LinearInfo"
         android:layout_width="match_parent"
@@ -140,4 +142,6 @@
             android:text="@string/Register"
             android:theme="@style/ButtonRegister" />
     </LinearLayout>
+</ScrollView>
+
 </android.support.constraint.ConstraintLayout>

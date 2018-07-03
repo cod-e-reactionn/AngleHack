@@ -5,27 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ir.mhkz.loginandsignup.Second_Activity"
-    android:background="@color/white">
-
+    android:background="@color/white"
+    >
 
 
     <ImageView
 
-        android:onClick="advertiser"
         android:id="@+id/addd"
-        android:layout_width="370dp"
-        android:layout_height="298dp"
-        app:srcCompat="@android:drawable/star_big_on"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="13dp"
-        tools:ignore="MissingConstraints" />
+        android:layout_width="230dp"
+        android:layout_height="245dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="advertiser"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.184"
+        app:srcCompat="@drawable/slide2"
+        tools:ignore="MissingConstraints,OnClick" />
 
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="10dp"
+        android:layout_height="11dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/holo_orange_light"
+        android:background="@android:color/white"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/pram"
         app:layout_constraintTop_toTopOf="@+id/addd"
@@ -37,12 +44,18 @@
 
     <ImageView
         android:id="@+id/pram"
-        android:layout_width="373dp"
-        android:layout_height="233dp"
-        android:layout_marginBottom="8dp"
-        android:onClick="pramoter"
+        android:layout_width="230dp"
+        android:layout_height="245dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="promoter"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:srcCompat="@android:drawable/ic_delete"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="7dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.975"
+        app:srcCompat="@drawable/slide4"
+        tools:ignore="MissingConstraints,OnClick" />
 </android.support.constraint.ConstraintLayout>
