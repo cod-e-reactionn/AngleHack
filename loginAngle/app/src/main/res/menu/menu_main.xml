@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+<item android:id="@+id/home_click"
+    android:icon="@drawable/home_icon"
+    android:title="HOME"/>
+
+        <item
+            android:id="@+id/ad_create"
+            android:icon="@drawable/add"
+
+            android:title="CREATE AD" />
+        <item
+            android:id="@+id/req"
+            android:icon="@drawable/req"
+
+            android:title="REQUEST" />
+        <item
+            android:id="@+id/ad_status"
+            android:icon="@drawable/status"
+            android:title="AD STATUS" />
+        <item
+            android:id="@+id/payment_his"
+            android:icon="@drawable/payment"
+            android:title="PAYMENT HISTORY"/>
+    </group>
+    <item android:title="">
+        <menu>
+        <item
+            android:id="@+id/acc_switch"
+            android:icon="@drawable/switchh"
+            android:title="SWITCH ACCOUNT" />
+        <item
+            android:id="@+id/seating"
+            android:icon="@drawable/setting"
+            android:title="SETTING"  />
+        <item
+            android:id="@+id/logout"
+
+            android:title="LOGOUT" />
+
+        </menu>
+
+
+
+    </item>
 
 </menu>

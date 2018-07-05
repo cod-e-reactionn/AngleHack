@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ir.mhkz.loginandsignup.fashion_cat">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center"
+            android:text="Showing all Fashion promoters"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="45dp"
+
+        android:background="#8c8c8c">
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="46dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/joshi_info"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="11dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_margin="1dp"
+                            android:text="Piyush Joshi"
+                            android:textSize="20dp"
+                            android:textColor="@color/black"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:paddingTop="10dp"
+                                android:layout_width="120dp"
+                                android:layout_height="match_parent"
+                                android:text="Facebook"
+                                android:textSize="20dp"
+                                android:textColor="@color/black"/>
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/fb"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/star"/>
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/star"/>
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/star"/>
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="190dp"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/joshiimageView"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:contentDescription="hello_world"
+                            android:layout_marginTop="24dp" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/joshicircleView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/joshiimageView"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="25dp"
+                            android:layout_marginLeft="40dp"
+                            android:src="@drawable/joshi" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/savneet_info"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="11dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_margin="1dp"
+                            android:text="Savneet Chatwal"
+                            android:textSize="20dp"
+                            android:textColor="@color/black"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:paddingTop="10dp"
+                                android:layout_width="120dp"
+                                android:layout_height="match_parent"
+                                android:text="Twitter"
+                                android:textSize="20dp"
+                                android:textColor="@color/black"/>
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/twitter"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/star"/>
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/star"/>
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/star"/>
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/star"/>
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="190dp"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/savneetimageView"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:contentDescription="hello_world"
+                            android:layout_marginTop="24dp" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/savneetcircleView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/savneetimageView"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="25dp"
+                            android:layout_marginLeft="40dp"
+                            android:src="@drawable/sav" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/gunjan_info"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="11dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_margin="1dp"
+                            android:text="Gunjan Thakur"
+                            android:textSize="20dp"
+                            android:textColor="@color/black"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:paddingTop="10dp"
+                                android:layout_width="120dp"
+                                android:layout_height="match_parent"
+                                android:text="Instagram"
+                                android:textSize="20dp"
+                                android:textColor="@color/black"/>
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/ig"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/star"/>
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/star"/>
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/star"/>
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/star"/>
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="60dp"
+                                android:src="@drawable/star"/>
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="190dp"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/gunjanimage"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:contentDescription="hello_world"
+                            android:layout_marginTop="24dp" />
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/gunjancircle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/gunjanimageView"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="25dp"
+                            android:layout_marginLeft="40dp"
+                            android:src="@drawable/gunjan" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

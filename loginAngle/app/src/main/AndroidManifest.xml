@@ -4,28 +4,57 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:largeHeap="true">
-        <activity android:name=".MainActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Second_Activity" />
+        <activity
+            android:name=".Second_Activity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".advertisment" />
-
-
-        <activity android:name=".pramoter"></activity>
-
+        <activity android:name=".pramoter" />
+        <activity android:name=".create_ad" />
+        <activity android:name=".req" />
+        <activity android:name=".adstatus" />
+        <activity android:name=".payment_history" />
+        <activity
+            android:name=".Promoters_list"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".high_low_follower" />
+        <activity android:name=".girish_Info" />
+        <activity android:name=".sid_info" />
+        <activity android:name=".athrav_info" />
+        <activity android:name=".gunjan_info" />
+        <activity android:name=".khatri_info" />
+        <activity android:name=".param_info" />
+        <activity android:name=".gawali_info" />
+        <activity android:name=".joshi_info" />
+        <activity android:name=".sanket_info" />
+        <activity android:name=".savneet_activity" />
+        <activity android:name=".delhi_people" />
+        <activity android:name=".mumbai" />
+        <activity android:name=".hyd_people" />
+        <activity android:name=".hydrabad" />
+        <activity android:name=".banglore" />
+        <activity android:name=".nagpur" />
+        <activity android:name=".agra" />
+        <activity android:name=".fashion_cat" />
+        <activity android:name=".event" />
+        <activity android:name=".cafe" />
+        <activity android:name=".ngp"></activity>
     </application>
 
 </manifest>
