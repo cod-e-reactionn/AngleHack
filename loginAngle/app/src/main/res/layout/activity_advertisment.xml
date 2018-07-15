@@ -5,74 +5,153 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ede8e8"
     tools:context="ir.mhkz.loginandsignup.advertisment"
-    tools:openDrawer="start"
-    android:fitsSystemWindows="true"
     android:id="@+id/drawer_layout">
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/rambhau"
-        android:gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
 
         <LinearLayout
-            android:layout_width="342dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="81dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
 
-            android:alpha="0.6"
-            android:background="#cdd2d8">
-
-
-            <EditText
-                android:id="@+id/editText"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="Search"
-                android:inputType="textPersonName"
-                android:paddingLeft="20dp"
-                android:textSize="14dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="-5dp"
+                android:background="#3d7ee5"
+                android:elevation="3dp"
+                android:paddingTop="5dp"
+                >
 
-                android:textColor="@color/black" />
 
-            <ImageView
 
-                android:layout_marginTop="6dp"
-                android:id="@+id/searchButton"
-                android:layout_marginRight="10dp"
-                android:layout_width="51dp"
-                android:layout_height="27dp"
-                android:layout_weight="1"
+                <LinearLayout
 
-                app:srcCompat="@drawable/search"
-                tools:layout_editor_absoluteX="273dp"
-                tools:layout_editor_absoluteY="7dp"
-                android:alpha="0.4"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_marginTop="12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                           android:layout_gravity="center"
+                            android:textSize="16dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Search city and categories"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:paddingLeft="120dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+
+                        <ImageView
+                            android:id="@+id/addpost"
+
+                            android:layout_marginTop="5dp"
+                            android:layout_width="39dp"
+                            android:layout_height="39dp"
+                            android:src="@drawable/addpost2"
+                            />
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
         </LinearLayout>
-    </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="9dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+
+                        <EditText
+                            android:background="@color/white"
+
+                            android:id="@+id/editText"
+                            android:layout_width="305dp"
+                            android:layout_height="match_parent"
+                            android:inputType="textPersonName"
+                            android:hint="Search"
+                            android:textColor="@color/black"
+                            android:textSize="16dp"/>
+
+                        <ImageView
+                            android:id="@+id/search"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/search"
+                            android:alpha="0.2"/>
+
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+
+
+
+
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    android:layout_marginTop="260dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     >
+    <TextView
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/textView"
+        android:layout_width="147dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="11dp"
+        android:text="City: "
+        android:textAllCaps="true"
+        android:textSize="15dp"
+
+        android:textStyle="bold" />
+
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="170dp">
@@ -174,9 +253,21 @@
 </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginTop="450dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         >
+        <TextView
+            android:layout_marginTop="9dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/textView2"
+            android:layout_width="188dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView"
+            android:text="Catogery:"
+            android:textAllCaps="true"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="170dp">
@@ -267,41 +358,18 @@
 
     </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="147dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="11dp"
-            android:layout_marginTop="235dp"
-            android:text="City: "
-            android:textAllCaps="true"
-            android:textSize="15dp"
 
-            android:textStyle="bold" />
+
+
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="188dp"
-            android:layout_height="wrap_content"
-
-
-            android:layout_alignStart="@+id/textView"
-            android:layout_marginTop="424dp"
-            android:text="Catogery:"
-            android:textAllCaps="true"
-            android:textSize="15dp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="160dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="OR"
-            android:layout_marginTop="600dp"
-            android:layout_marginLeft="175dp"
-            android:textStyle="bold"
-            android:textSize="25dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:gravity="center"
+            android:textSize="18dp"
             android:textColor="@color/black"
             />
 
@@ -309,39 +377,36 @@
 
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_marginTop="640dp"
             android:background="#3d7ee5"
             android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:gravity="center"
      android:layout_marginTop="9dp"
-        android:layout_marginLeft="86dp"
 
-        android:text="See all Promoters ↓"
+
+        android:text="See all Promoters "
         android:textStyle="bold"
         android:textSize="20dp"
-        android:textColor="@color/white"
-        android:textAllCaps="true"/>
+        android:textColor="@color/white" />
 
 
         </LinearLayout>
+        </LinearLayout>
 </RelativeLayout>
     </ScrollView>
-
     <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="220dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
         app:menu="@menu/menu_main"
-        app:headerLayout="@layout/navigation_header"/>
+        android:layout_gravity="start"
+        android:id="@+id/navigation_view">
+
+    </android.support.design.widget.NavigationView>
+
 
 
 </android.support.v4.widget.DrawerLayout>

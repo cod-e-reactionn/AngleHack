@@ -54,7 +54,7 @@
         <activity android:name=".fashion_cat" />
         <activity android:name=".event" />
         <activity android:name=".cafe" />
-        <activity android:name=".ngp"></activity>
+        <activity android:name=".ngp" />
     </application>
 
 </manifest>
