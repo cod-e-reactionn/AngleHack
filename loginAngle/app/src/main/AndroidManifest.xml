@@ -55,6 +55,7 @@
         <activity android:name=".event" />
         <activity android:name=".cafe" />
         <activity android:name=".ngp" />
+        <activity android:name=".setupActivity"></activity>
     </application>
 
 </manifest>

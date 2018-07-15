@@ -19,8 +19,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     public static final String USERNAME = "Name";
@@ -29,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String EMAIL_ADD = "Email_add";
     private FirebaseAuth firebaseAuth;
     //to save user data
-    private DocumentReference saveuserdata = FirebaseFirestore.getInstance().document("User/UserInfo");
+   private DatabaseReference user_ref;
+   String current_user_id;
 
 
     EditText username, password, reg_username, reg_password,
@@ -38,12 +39,16 @@ public class MainActivity extends AppCompatActivity {
     TextInputLayout txtInLayoutUsername, txtInLayoutPassword, txtInLayoutRegPassword;
     CheckBox rememberMe;
     private ProgressDialog progressDialog;
+    private ProgressDialog loadingbar;
+    private View view;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         username = findViewById(R.id.username);
         password=findViewById(R.id.password);
@@ -53,7 +58,12 @@ public class MainActivity extends AppCompatActivity {
         txtInLayoutPassword = findViewById(R.id.txtInLayoutPassword);
         rememberMe = findViewById(R.id.rememberMe);
         firebaseAuth =FirebaseAuth.getInstance();
+        current_user_id=firebaseAuth.getCurrentUser().getUid();
+        user_ref= FirebaseDatabase.getInstance().getReference().child("Users").child(current_user_id);
         progressDialog = new ProgressDialog(this);
+        loadingbar = new ProgressDialog(this);
+
+
 
         ClickLogin();
 
@@ -67,7 +77,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
     }
+
+
+
+
+
 
     //This is method for doing operation of check login
     private void ClickLogin() {
@@ -78,61 +94,79 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String email = username.getText().toString().trim();
-                final String pwd = password.getText().toString().trim();
-
-                if (username.getText().toString().trim().isEmpty()) {
-
-                    Snackbar snackbar = Snackbar.make(view, "Please fill out these fields",
-                            Snackbar.LENGTH_LONG);
-                    View snackbarView = snackbar.getView();
-                    snackbarView.setBackgroundColor(getResources().getColor(R.color.red));
-                    snackbar.show();
-                    txtInLayoutUsername.setError("Username should not be empty");
-                } else {
-                    //Here you can write the codes for checking username
-                }
-                if (password.getText().toString().trim().isEmpty()) {
-                    Snackbar snackbar = Snackbar.make(view, "Please fill out these fields",
-                            Snackbar.LENGTH_LONG);
-                    View snackbarView = snackbar.getView();
-                    snackbarView.setBackgroundColor(getResources().getColor(R.color.red));
-                    snackbar.show();
-                    txtInLayoutPassword.setError("Password should not be empty");
-                } else {
-                    //Here you can write the codes for checking password
-                }
-
-                if (rememberMe.isChecked()) {
-                    //Here you can write the codes if box is checked
-                } else {
-                    //Here you can write the codes if box is not checked
-                }
-                progressDialog.setMessage("Registering Please Wait...");
-                progressDialog.show();
-                firebaseAuth.signInWithEmailAndPassword(email,pwd)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (!task.isSuccessful()) {
-
-
-                                    Toast.makeText(MainActivity.this, "Login successfull", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(MainActivity.this,Second_Activity.class);
-                                    startActivity(intent);
-                                }
-                                progressDialog.dismiss();
-
-
-                            }
-                        });
-
+                Allowuserlogin();
 
                 }
 
         });
 
     }
+
+    private void Allowuserlogin() {
+        final String email = username.getText().toString().trim();
+        final String pwd = password.getText().toString().trim();
+
+        if (username.getText().toString().trim().isEmpty()) {
+
+            Snackbar snackbar = Snackbar.make(view, "Please fill out these fields",
+                    Snackbar.LENGTH_LONG);
+            View snackbarView = snackbar.getView();
+            snackbarView.setBackgroundColor(getResources().getColor(R.color.red));
+            snackbar.show();
+            txtInLayoutUsername.setError("Username should not be empty");
+        } else {
+            //Here you can write the codes for checking username
+        }
+        if (password.getText().toString().trim().isEmpty()) {
+            Snackbar snackbar = Snackbar.make(view, "Please fill out these fields",
+                    Snackbar.LENGTH_LONG);
+            View snackbarView = snackbar.getView();
+            snackbarView.setBackgroundColor(getResources().getColor(R.color.red));
+            snackbar.show();
+            txtInLayoutPassword.setError("Password should not be empty");
+        } else {
+            //Here you can write the codes for checking password
+        }
+
+        if (rememberMe.isChecked()) {
+            //Here you can write the codes if box is checked
+        } else {
+            //Here you can write the codes if box is not checked
+        }
+
+        loadingbar.setTitle("Logging in");
+        loadingbar.setMessage("Please wait, while we Logging in");
+        loadingbar.show();
+        loadingbar.setCanceledOnTouchOutside(true);
+
+        firebaseAuth.signInWithEmailAndPassword(email,pwd)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            UserLoginSuccessful();
+                            Toast.makeText(MainActivity.this,"You are Logged in",Toast.LENGTH_SHORT).show();
+                            loadingbar.dismiss();
+
+                        }else
+                            {
+                                String messege = task.getException().getMessage();
+                                Toast.makeText(MainActivity.this,"Login Failed"+messege,Toast.LENGTH_SHORT).show();
+                                loadingbar.dismiss();
+                            }
+
+                    }
+                });
+    }
+
+    private void UserLoginSuccessful()
+    {
+        Intent mainintent = new Intent(MainActivity.this, Second_Activity.class);
+        mainintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(mainintent);
+        finish();
+    }
+
 
     //The method for opening the registration page and another processes or checks for registering
     private void ClickSignUp() {
@@ -143,10 +177,8 @@ public class MainActivity extends AppCompatActivity {
         View dialogView = inflater.inflate(R.layout.register, null);
         dialog.setView(dialogView);
         firebaseAuth = FirebaseAuth.getInstance();
-        reg_username = dialogView.findViewById(R.id.reg_username);
+
         reg_password = dialogView.findViewById(R.id.reg_password);
-        reg_firstName = dialogView.findViewById(R.id.reg_firstName);
-        reg_lastName = dialogView.findViewById(R.id.reg_lastName);
         reg_email = dialogView.findViewById(R.id.reg_email);
         reg_confirmemail = dialogView.findViewById(R.id.reg_confirmemail);
         reg_register = dialogView.findViewById(R.id.reg_register);
@@ -155,73 +187,10 @@ public class MainActivity extends AppCompatActivity {
 
         reg_register.setOnClickListener(new View.OnClickListener() {
 
-
-
-
-
-
-
             @Override
-            public void onClick(View view) {
-                String email = reg_email.getText().toString().trim();
-                String password  = reg_password.getText().toString().trim();
-                String name = reg_firstName.getText().toString().trim();
-                String username =reg_username.getText().toString().trim();
-                String lastname = reg_lastName.getText().toString().trim();
-
-
-
-                if (reg_username.getText().toString().trim().isEmpty()) {
-
-                    reg_username.setError("Please fill out this field");
-                } else {
-                    //Here you can write the codes for checking username
-                }
-                if (reg_password.getText().toString().trim().isEmpty()) {
-                    txtInLayoutRegPassword.setPasswordVisibilityToggleEnabled(false);
-                    reg_password.setError("Please fill out this field");
-                } else {
-                    txtInLayoutRegPassword.setPasswordVisibilityToggleEnabled(true);
-                    //Here you can write the codes for checking password
-                }
-                if (reg_firstName.getText().toString().trim().isEmpty()) {
-
-                    reg_firstName.setError("Please fill out this field");
-                } else {
-                    //Here you can write the codes for checking firstname
-
-                }
-                if (reg_lastName.getText().toString().trim().isEmpty()) {
-
-                    reg_lastName.setError("Please fill out this field");
-                } else {
-                    //Here you can write the codes for checking lastname
-                }
-                if (reg_email.getText().toString().trim().isEmpty()) {
-
-                    reg_email.setError("Please fill out this field");
-                } else {
-                    //Here you can write the codes for checking email
-                }
-                if (reg_confirmemail.getText().toString().trim().isEmpty()) {
-
-                    reg_confirmemail.setError("Please fill out this field");
-                } else {
-                    //Here you can write the codes for checking confirmemail
-                }
-                firebaseAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if(task.isSuccessful()){
-                                    //display some message here
-                                    Toast.makeText(MainActivity.this,"Successfully registered",Toast.LENGTH_LONG).show();
-                                }else{
-                                    //display some message here
-                                    Toast.makeText(MainActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
+            public void onClick(View view)
+            {
+                CreateNewAccount();
             }
         });
 
@@ -230,12 +199,71 @@ public class MainActivity extends AppCompatActivity {
 
         dialog.show();
 
+        }
 
+    private void CreateNewAccount() {
+        String conemail = reg_confirmemail.getText().toString().trim();
+        String email = reg_email.getText().toString().trim();
+        String password = reg_password.getText().toString().trim();
+
+        if (reg_password.getText().toString().trim().isEmpty()) {
+            txtInLayoutRegPassword.setPasswordVisibilityToggleEnabled(false);
+            reg_password.setError("Please fill out this field");
+        } else {
+            txtInLayoutRegPassword.setPasswordVisibilityToggleEnabled(true);
+        }
+
+
+        if (reg_email.getText().toString().trim().isEmpty()) {
+
+            reg_email.setError("Please fill out this field");
+        } else {
+            //Here you can write the codes for checking email
+        }
+        if (reg_confirmemail.getText().toString().trim().isEmpty()) {
+
+            reg_confirmemail.setError("Please fill out this field");
+        }  if (!reg_email.equals(reg_confirmemail)) {
+            Toast.makeText(this, "Please conform Email Properly", Toast.LENGTH_SHORT).show();
+        }
+            loadingbar.setTitle("Creating New Account");
+            loadingbar.setMessage("Please wait, while we Creating your account");
+            loadingbar.show();
+            loadingbar.setCanceledOnTouchOutside(true);
+
+
+            firebaseAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+
+
+                                Toast.makeText(MainActivity.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
+                                loadingbar.dismiss();
+                            } else {
+                                String message = task.getException().getMessage();
+                                Toast.makeText(MainActivity.this, "Error:" + message, Toast.LENGTH_SHORT).show();
+                                loadingbar.dismiss();
+                            }
+                        }
+                    });
+
+
+        }
+
+
+    private void sendtosetUpActivity() {
+        Intent setupintent= new Intent(MainActivity.this,setupActivity.class);
+        setupintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(setupintent);
+        finish();
     }
 
 
+}
 
 
-    }
+
 
 
