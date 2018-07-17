@@ -20,7 +20,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     public static final String USERNAME = "Name";
@@ -58,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
         txtInLayoutPassword = findViewById(R.id.txtInLayoutPassword);
         rememberMe = findViewById(R.id.rememberMe);
         firebaseAuth =FirebaseAuth.getInstance();
-        current_user_id=firebaseAuth.getCurrentUser().getUid();
-        user_ref= FirebaseDatabase.getInstance().getReference().child("Users").child(current_user_id);
         progressDialog = new ProgressDialog(this);
         loadingbar = new ProgressDialog(this);
 
@@ -253,12 +250,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-    private void sendtosetUpActivity() {
-        Intent setupintent= new Intent(MainActivity.this,setupActivity.class);
-        setupintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(setupintent);
-        finish();
-    }
 
 
 }
