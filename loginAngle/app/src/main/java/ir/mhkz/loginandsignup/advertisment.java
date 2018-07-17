@@ -16,12 +16,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 public class advertisment extends AppCompatActivity {
 
     private DrawerLayout mdrawer;
     private ActionBarDrawerToggle mtoggle;
     NavigationView navigation;
     RecyclerView postLine;
+    private FirebaseAuth firebaseAuth;
+    private DatabaseReference UsersRef;
+    String currentUserID;
 
     ImageView searchButton,addpost;
     CardView delhi,mumbai,hyd_people,banglore_page,fashion_click,nagpur,agra_info,event_click,cafe_click,ngo_click;
@@ -30,6 +41,11 @@ TextView tv;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advertisment);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        currentUserID = firebaseAuth.getCurrentUser().getUid();
+        UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
+
 
 
         navigation=findViewById(R.id.navigation_view);
@@ -169,6 +185,8 @@ TextView tv;
 
 
     }
+
+
 
     private void UserMenuIterm(MenuItem item) {
         switch (item.getItemId()){

@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         ClickLogin();
 
 
@@ -76,8 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-
 
 
 
@@ -234,6 +233,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                submitpage();
 
 
                                 Toast.makeText(MainActivity.this, "Registration Successfull", Toast.LENGTH_SHORT).show();
@@ -249,7 +249,13 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+    private void submitpage() {
+        Intent subintent = new Intent(MainActivity.this, setupActivity.class);
+        subintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(subintent);
+        finish();
 
+    }
 
 
 }
